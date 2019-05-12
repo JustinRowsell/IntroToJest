@@ -77,12 +77,20 @@
           }
         },
         "test": {
-          "builder": "@angular-builders/jest:run",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "no-cache": true,
-            "reporters": ["jest-junit"],
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "jestConfig": "src/setupJest.ts"
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.sass"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
           }
         },
         "lint": {
