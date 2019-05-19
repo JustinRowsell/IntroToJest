@@ -1,0 +1,7 @@
+<div *ngFor="let c of characterList | async">
+  <mat-card style="margin: 10px; width: 200px; display: inline-block">
+    <mat-card-header style="margin-bottom: 5px;">{{c.firstName}} {{c.lastName}}</mat-card-header>
+    <mat-card-content><img src="../../../assets/arya.jpg" /></mat-card-content>
+    <mat-card-footer>Badass score: {{c.badAssScale}}</mat-card-footer>
+  </mat-card>
+</div>
