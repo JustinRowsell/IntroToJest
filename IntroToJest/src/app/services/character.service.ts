@@ -16,4 +16,33 @@ export class CharacterService {
     const sampleCharacters = this.sampleData.getCharacters();
     this._characters.next(sampleCharacters);
   }
+
+  addCharacter(character: Character): void {
+    const characterArr: Character[]  = this._characters.getValue();
+    if (this.characterExists(character)) {
+      throw new Error(`Character '${character.firstName} ${character.lastName}' already exists`);
+    }
+    characterArr.push(character);
+    this._characters.next(characterArr);
+  }
+
+  characterExists(character: Character): boolean {
+    const existingCharacters: Character[] = this._characters.getValue();
+    for (const c of existingCharacters) {
+      if (c.firstName === character.firstName && c.lastName === character.lastName) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  deleteCharacter(character: Character): void {
+    const characters: Character[] = this._characters.getValue();
+    const existingIndex: number = characters
+                                  .findIndex(c => c.firstName === character.firstName
+                                  && c.lastName === character.lastName);
+    if (existingIndex > -1) {
+      characters.splice(existingIndex, 1);
+    }
+  }
 }
