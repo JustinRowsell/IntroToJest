@@ -53,12 +53,11 @@ describe('CharacterService', () => {
       expect(service.characterExists(arya)).toBeFalsy();
     });
   });
-  /*
-  it('#getValue should return value', () => {
-    const spy = jest.spyOn(service._characters, 'getValue');
-    spy.mockReturnValue('stub value');
 
-    expect(service.getValue()).toBe('stub value');
+  it('add should check if character exists', () => {
+    const spy = jest.spyOn(service, 'characterExists');
+
+    expect(service.characterExists(theHound)).toBeFalsy();
     expect(spy).toHaveBeenCalled();
-  });*/
+  });
 });
