@@ -46,6 +46,13 @@ describe('CharacterService', () => {
     expect(testAryaAdd).toThrowError();
   });
 
+  it('should throw duplicate character error when adding a duplicate', () => {
+    function testAryaAdd() {
+      service.addCharacter(arya);
+    }
+    expect(testAryaAdd).toThrowError('already exists');
+  });
+
   it('should delete character', () => {
     service.deleteCharacter(arya);
     service.characters.subscribe((characters) => {
