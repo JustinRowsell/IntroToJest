@@ -24,4 +24,9 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should pass snapshot test', () => {
+    fixture = TestBed.createComponent(DashboardComponent);
+    expect(fixture).toMatchSnapshot();
+  });
 });
