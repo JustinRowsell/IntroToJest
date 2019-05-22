@@ -64,7 +64,7 @@ describe('CharacterService', () => {
   it('add should check if character exists', () => {
     const spy = jest.spyOn(service, 'characterExists');
 
-    expect(service.characterExists(theHound)).toBeFalsy();
+    expect(service.addCharacter(theHound)).toBeFalsy();
     expect(spy).toHaveBeenCalled();
   });
 });
